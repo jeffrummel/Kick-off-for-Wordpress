@@ -1,7 +1,7 @@
 Kickoff Theme for Wordpress
 ---------------------------
 
-This theme is a starting point for creating multi-column, responsive designs in Wordpress with HTML5. If this theme were Voltron; Paul Irish and __ would be the Blue and Yellow Lions for laying the foundation with the html5 Boilerplate (), Richard Clark and Andy Clark make up the Red and Green Lions (with their html5 reset, and 320andup stylesheets, respectively), Making up the Red Lion is zencoder, for the light-weight html5 boilerplate theme. Tim Murtaugh is the sword, for a few of the sharp edges.
+This theme is a starting point for creating multi-column, responsive designs in Wordpress with HTML5. If this theme were Voltron; Michael Pick and Tim Murtaugh would be the Blue and Yellow Lions for laying the foundation with the html5-Reset theme for wordpress, and the yellow lion goes to Nathan Staines (for his Starkers theme). Richard Clark and Andy Clark make up the Red and Green Lions (with their html5 reset, and 320andup stylesheets, respectively), Making up the Red Lion is Paul Irish and the html5 boilerplate team, for the light-weight html5 boilerplate.
 
 Built in Functions
 ------------------
