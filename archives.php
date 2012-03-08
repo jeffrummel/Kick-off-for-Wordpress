@@ -10,7 +10,7 @@ Template Name: Archives
 
 <?php get_header(); ?>
 
-<div id="main">
+<section id="main">
 
   <?php get_search_form(); ?>
 
@@ -28,7 +28,7 @@ Template Name: Archives
     </ul>
   </section>
 
-</div>
+</section>
 
 <?php get_sidebar(); ?>
 

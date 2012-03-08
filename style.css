@@ -9,129 +9,147 @@ Tags:clean,multi-column,responsive
 License:GNU General Public License v2.0
 License URI:http://www.gnu.org/licenses/gpl-2.0.html
 	
-	
+Light weight Reset v1.6.1 Modified from http://html5doctor.com/html-5-reset-stylesheet/	
+-------------------------------------------------------------------------------
+@import "_/css/reset.css";	*/
+
+/* HTML5 display definitions: h5bp.com/css
 -------------------------------------------------------------------------------*/
-@import "_/css/reset.css";
-/* Wireframe and testing: These styles can be removed when testing is complete.
--------------------------------------------------------------------------------*/
-.test {
-	/* Add a green outline to elements for testing against the grid */
-	outline:1px solid red;
-}
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+
+/* 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ -------------------------------------------------------------------------------*/
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+
+
 /* SEMANTICS Set the stage.
+body { background: url('img/1000-12.png') top center repeat-y fixed;
+body { background: url('img/1200-16.png') top center repeat-y fixed;
 -------------------------------------------------------------------------------*/
-body {
-	background: url('img/1200-16.png') top center repeat-y fixed;
-	color:#000;
-	font:500 1em/1.25em Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif;
-}
-a:link, a:visited {
-	color:blue;
-	text-decoration:none;
-}
-a:hover {
-	color:purple;
-	text-decoration:underline;
-}
-a.active {
-	color:red;
-}
-a:link {
--webkit-tap-highlight-color: purple;
-}
-::-moz-selection {
-background: #000;
-color: #fff;
-text-shadow: none;
-}
-::selection {
-background: #000;
-color: #fff;
-text-shadow: none;
-}
+body { background: url('img/1200-16.png') top center repeat-y fixed;
+	font:500 1em/1.25em arial, helvetica, sans-serif; color:#000; }
+
+/* LINKS	*/
+a, a:link, a:visited { color:blue; text-decoration:none;}
+a:hover { color:purple; text-decoration:underline;}
+a.active { color:red;}
+a:link { -webkit-tap-highlight-color: purple; }
+a:hover, a:active { outline: 0; }
+
+/* TEXT HIGHLIGHTING	*/
+::-moz-selection { background: #000; color: #fff; text-shadow: none !important;}
+::selection { background: #000; color: #fff; text-shadow: none !important;}
+
+/* TYPOGRAPHY	*/
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+blockquote { margin: 1em 40px; }
+
+dfn { font-style: italic; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+/* Redeclare monospace font family: h5bp.com/j */
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+
+/* Improve readability of pre-formatted text in all browsers */
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+
+small { font-size: 85%; }
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
 h1,h2,h3,h4,h5,h6 {
-	font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
-	color: #555;
-	text-shadow: 0 1px 0px #fff;
+	}
+	h1 {}
+	h2 {}
+	h3 {}
+	h4 {}
+	h5 {}
+	h6 {
 }
-ins {
-    background-color:#eee;
-    color:#555;
-    text-decoration:none;
-}
-mark {
-    background-color:#eee;
-    color:#555; 
-    font-style:italic;
-    font-weight:bold;
-}
+
 del {
 	color:#666;
 }
-hr {
-    display:block;
-    height:1px;
-    border:0;   
-    border-top:1px solid #000;
-    margin:1em 0;
-    padding:0;
-}
+
+/* LISTS	*/
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+/* Responsive IMG & EMBED	*/
+img,object,embed { max-width: 100%;height: auto; }
+
+/* Make embedded videos (including YouTube & Vimeo) responsive 
+ * wrap embed code in .video-wrapper http://webdesignerwall.com/tutorials/css-elastic-videos
+ */
+
+.video-wrapper { position: relative;padding-bottom: 56.25%;padding-top: 25px; height: 0; }
+object, embed, iframe { position: absolute;top: 0;left: 0;width: 100%;height: 100%; }
+
+/* show overflow in ie9	*/
+svg:not(:root) { overflow: hidden; }
+
+/* FORMS	*/
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+
+/* Make buttons uniform no matter what the plugins say */
+button, 
+input[type="button"],
+input[type="submit"] {}
+
+/* Indicate that 'label' will shift focus to the associated form element */
+label { cursor: pointer; }
+
+/*
+ * 1. Correct color not inheriting in IE6/7/8/9
+ * 2. Correct alignment displayed oddly in IE6/7
+ */
+
+legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+
+
 /* JUJUTSU leverages wordpress classes.
 -------------------------------------------------------------------------------*/
 /* WordPress Required Styles */
-.aligncenter {
-	display: block;
-	margin: 0 1em 1em;
-}
+.aligncenter { display: block; margin: 0 auto 1em; }
 
-.alignleft {
-	float: left;
-	margin:0 1em 1em 0;
-}
+.alignleft { float: left;margin:0 1em 1em 0; }
 
-.alignright {
-	float: right;
-	margin:0 0 1em 1em;
-}
+.alignright { float: right;margin:0 0 1em 1em;}
 
-.wp-caption {
-	outline: 1px solid #555;
-	text-align: center;
-	background-color: #eee;
-	padding: 0.5em;
-}
+.wp-caption {outline: 1px solid #555; background-color: #eee; padding: 0.5em;}
 
-.wp-caption img {
-	margin: 0;
-	padding: 0;
-	border: 0 none;
-}
+.wp-caption img {margin: 0;padding: 0;border: 0 none;}
 
-.wp-caption-dd {
-	font-size: 0.75em;
-	line-height: 1em;
-	padding: 0 0.25em 0.5em;
-	margin: 0;
-}
 .sticky {
 	background:#eee;
 }
-.postmetadata,.postinfo {
-}
-.postmetadata {
-}
-.postmetadata div {
-}
-.postmetadata div h5,.navigation h5 {
-}
-.postinfo {
-border: 2px solid #555;
-}
-
 #container {
 	max-width:1200px;
 	margin:0 auto;
-	padding:0 1em 0;
+	padding:0;
 }
 .call-to-action {
 	background:#eee;
@@ -141,89 +159,10 @@ a[rel~="feed"] {
 	background-size:auto 80%;
     padding-right: 18px;
 }
-@media only screen and (min-width: 480px) {
-	.col2,.col3,.col4,.col5,.col6,.col7,.col8,.col9,.col10,.col11,.col12{width:100%;}
-	.left1,.left2,.left3,.left4,.left5,.left6{margin-left:0;}
-	.right1,.right2,.right3,.right4,.right5,.right6{margin-right:0;}
-}
 @media only screen and (min-width: 600px) {}
 @media only screen and (min-width: 768px) {}
 @media only screen and (min-width: 992px) {
-	.col2 {
-	width: 12.6667%;/* 136 / 1200 = 0.113333333333333 */
-	}
-	.col3 {
-	width: 17.6667%;/* 212 / 1200 = 0.176666666666667 */
-	}
-	.col4 {
-	width: 24%;/* 288 / 1200 = 0.24 */
-	}
-	.col5 {
-	width: 30.3333%;/* 364 / 1200 = 0.303333333333333 */
-	}
-	.col6 {
-	width: 36.6667%;/* 440 / 1200 = 0.366666666666667 */
-	}
-	.col7 {
-	width: 43%;/* 516 / 1200 = 0.43 */
-	}
-	.col8 {
-	width: 49.3333%;/* 592 / 1200 = 0.493333333333333 */
-	}
-	.col9 {
-	width: 55.6667%;/* 668 / 1200 = 0.556666666666667 */
-	}
-	.col10 {
-	width: 62%;/* 744 / 1200 = 0.62 */
-	}
-	.col11 {
-	width: 68.3333%;/* 820 / 1200 = 0.683333333333333 */
-	}
-	.col12 {
-	width: 74.6667%;/* 896 / 1200 = 0.746666666666667 */
-	}
-	.left {
-	float: left;
-	}
-	.ml1 {
-	margin-left: 6.3333%;/* 76 / 1200 = 0.063333333333333 */
-	}
-	.ml2 {
-	margin-left: 12.6667%;/* 152 / 1200 = 0.126666666666667 */
-	}
-	.ml3 {
-	margin-left: 19%;/* 228 / 1200 = 0.19 */
-	}
-	.ml4 {
-	margin-left: 25.3333%;/* 304 / 1200 = 0.253333333333333 */
-	}
-	.ml5 {
-	margin-left: 30.3333%;/* 364 / 1200 = 0.303333333333333 */
-	}
-	.ml6 {
-	margin-left: 36.6667%;/* 440 / 1200 = 0.366666666666667 */
-	}
-	.mr1 {
-	margin-right: 6.3333%;/* 76 / 1200 = 0.063333333333333 */
-	}
-	.mr2 {
-	margin-right: 12.6667%;/* 152 / 1200 = 0.126666666666667 */
-	}
-	.mr3 {
-	margin-right: 19%;/* 228 / 1200 = 0.19 */
-	}
-	.mr4 {
-	margin-right: 25.3333%;/* 304 / 1200 = 0.253333333333333 */
-	}
-	.top2 {
-	margin-top: 2em;
-	}
-	.right {
-	float: right;
-	}
-	.clear {
-	clear: both;
-	}
+
 	
 }
 @media only screen and (min-width: 1382px) {

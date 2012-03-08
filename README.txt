@@ -3,6 +3,90 @@ Kickoff Theme for Wordpress
 
 This theme is a starting point for creating multi-column, responsive designs in Wordpress with HTML5. If this theme were Voltron; Michael Pick and Tim Murtaugh would be the Blue and Yellow Lions for laying the foundation with the html5-Reset theme for wordpress, and the yellow lion goes to Nathan Staines (for his Starkers theme). Richard Clark and Andy Clark make up the Red and Green Lions (with their html5 reset, and 320andup stylesheets, respectively), Making up the Red Lion is Paul Irish and the html5 boilerplate team, for the light-weight html5 boilerplate.
 
+
+3/08/12
+-------
+Header - Cleaned up the header, 
+	Added head_top to handle doctype
+	Added head_bottom to handle everything else.
+
+style.css - Refined
+	Added elements from html5 boilerplate for mobile
+	Added clearfix support.
+	Added responsive images & embeds
+		
+	STYLESHEETS FOR RESPONSIVE GRIDS
+	------------------
+	992 / 12 column
+	------------------
+	.col1{width:6.9556%;/*69 / 992 = 0.069556451612903 */}
+	.col2{width:15.5241%;/* 154 / 992 = 0.155241935483871 */}
+	.col3{width:24.0927%;/* 239 / 992 = 0.240927419354839 */}
+	.col4{width:32.6612%;/* 324 / 992 = 0.326612903225806 */}
+	.col5{width:41.2298%;/* 409 / 992 = 0.412298387096774 */}
+	.col6{width:49.7983%;/* 494 / 992 = 0.497983870967742 */}
+	.col7{width:58.3669%;/* 579 / 992 = 0.58366935483871 */}
+	.col8{width:66.9354%;/* 664 / 1200 = 0.669354838709677 */}
+	.col9{width:75.504%;/* 749 / 1200 = 0.755040322580645 */}
+	.col10{width:84.0725%;/* 834 / 1200 = 0.840725806451613 */}
+	.col11{width:92.6411%;/* 919 / 1200 = 0.926411290322581 */}
+	------------------
+	1200 / 16 column
+	------------------
+	.col1{	width:5%;	/* 60 / 1200 = 0.05 */ }
+	.col2{	width:12.6667%;	/* 136 / 1200 = 0.113333333333333 */}
+	.col3{	width:17.6667%;	/* 212 / 1200 = 0.176666666666667 */}
+	.col4{	width:24%;		/* 288 / 1200 = 0.24 */}
+	.col5{	width:30.3333%;	/* 364 / 1200 = 0.303333333333333 */}
+	.col6{	width:36.6667%;	/* 440 / 1200 = 0.366666666666667 */}
+	.col7{	width:43%;		/* 516 / 1200 = 0.43 */}
+	.col8{	width:49.3333%;	/* 592 / 1200 = 0.493333333333333 */}
+	.col9{	width:55.6667%;	/* 668 / 1200 = 0.556666666666667 */}
+	.col10{	width:62%;		/* 744 / 1200 = 0.62 */}
+	.col11{	width:68.3333%;	/* 820 / 1200 = 0.683333333333333 */}
+	.col12{	width:74.6667%;	/* 896 / 1200 = 0.746666666666667 */}
+	.ml1{	margin-left:6.3333%;	/*  76 / 1200 = 0.063333333333333 */}
+	.ml2{	margin-left:12.6667%;	/* 152 / 1200 = 0.126666666666667 */}
+	.ml3{	margin-left:19%;		/* 228 / 1200 = 0.19 */}
+	.ml4{	margin-left:25.3333%;	/* 304 / 1200 = 0.253333333333333 */}
+	.ml5{	margin-left:30.3333%;	/* 364 / 1200 = 0.303333333333333 */}
+	.ml6{	margin-left:36.6667%;	/* 440 / 1200 = 0.366666666666667 */}
+	.mr1{	margin-right:6.3333%;	/*  76 / 1200 = 0.063333333333333 */}
+	.mr2{	margin-right:12.6667%;	/* 152 / 1200 = 0.126666666666667 */}
+	.mr3{	margin-right:19%;		/* 228 / 1200 = 0.19 */}
+	.mr4{	margin-right:25.3333%;	/* 304 / 1200 = 0.253333333333333 */}
+
+
+Includes
+------------------
+Created _/inc/ in the theme directory with support files frequently used on wordpress sites.
+Use include (TEMPLATEPATH . '/_/inc/SUPPORT-FILE NAME.php' ); to call any of the templates.
+	
+	browse.php - Calls the Previous/next for single posts and multiple posts. 
+	Use inside the loop
+	
+	meta.php - Calls meta info such as author, date, categories, tags and number of comments for a given post.
+	Use inside the loop
+
+	video.php - Calls a video wrapped in the mark-up needed to make it responsive
+	
+	slider.php - Uses flexslider for a video slideshow.
+	
+JS
+------------------
+Jquery 1.7.1
+Modernizr 2.5.3
+
+Plugins
+------------------
+Respond.js
+flexslider.js
+
+Scripts
+------------------
+Activate Flexslider
+Add support for input placeholder text for old browsers.
+
 Built in Functions
 ------------------
 

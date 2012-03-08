@@ -4,35 +4,36 @@
 	 * @subpackage HTML5-Kickoff
 	 */
 
-	// Remove Auto Paragraph for excerpt & Add for Content
-	remove_filter( 'the_excerpt', 'wpautop' );
-	add_filter('the_content', 'wpautop');
-	
-	// Control the Excerpt Length
+if(!function_exists('kickoff_setup')) {
+	// Control the Excerpt Length in words
 	function Kickoff_excerpt_length( $length ) {
 		return 40;
 	}
 	add_filter( 'excerpt_length', 'Kickoff_excerpt_length' );
 	
-	// Remove remove unsupported rel's for happy HTML5
-	add_filter( 'the_category', 'add_nofollow_cat' );
+	// Remove Auto Paragraph for excerpt & Add for Content
+	remove_filter( 'the_excerpt', 'wpautop' );
+	add_filter('the_content', 'wpautop');
+	
+	// Theme Support - Thumbnail
+	add_theme_support('post-thumbnails');
+	
+	// Remove unsupported rel's for happy HTML5
 	function add_nofollow_cat( $text ) {
 		$text = str_replace('rel="category tag"', "", $text);
 		return $text;
 	}
-
 	// Remove Image Sizes from Mark-Up for fluid grid compatibility
 	function remove_image_dim_attr($html) {
        $html=preg_replace( '/width=(["\'])(.*?)\1/', '', $html );
        $html=preg_replace( '/height=(["\'])(.*?)\1/', '', $html );
        return $html;
-   }
-   add_filter( 'get_image_tag','remove_image_dim_attr' );
-   add_filter( 'image_send_to_editor','remove_image_dim_attr' );
-   add_filter( 'post_thumbnail_html','remove_image_dim_attr' );
-   
+	}
+	add_filter( 'get_image_tag','remove_image_dim_attr' );
+	add_filter( 'image_send_to_editor','remove_image_dim_attr' );
+	add_filter( 'post_thumbnail_html','remove_image_dim_attr' );
+
 	// Theme Support - Menus
-	
 	if ( function_exists( 'register_nav_menus' ) ) {
 		register_nav_menus(
 			array(
@@ -45,11 +46,9 @@
 	}	
 	add_filter('wp_nav_menu_args', 'prefix_nav_menu_args');
 	function prefix_nav_menu_args($args = ''){
-	    $args['container'] = false;
+	    $args['container'] = 'nav';
 	    return $args;
 	}
-	
-	
 	// Theme Support - Sidebars
 	if (function_exists('register_sidebar')) {
     	register_sidebar(array(
@@ -62,11 +61,7 @@
 			'after_title' => '</h2>',
     	));
     }
-   
-	// Theme Support - Thumbnail
-	add_theme_support('post-thumbnails');
 	
-
 	// Custom Styles identified by Post ID
 	function customstyle() {
 	    global $post;
@@ -84,11 +79,65 @@
 	
 	// Clean up the <head>
 	function removeHeadLinks() {
-    	remove_action('wp_head', 'rsd_link');
-    	remove_action('wp_head', 'wlwmanifest_link');
+		remove_action( 'wp_head', 'feed_links' );
+		remove_action( 'wp_head', 'rsd_link');
+		remove_action( 'wp_head', 'wlwmanifest_link');
+		remove_action( 'wp_head', 'parent_post_rel_link');
+		remove_action( 'wp_head', 'start_post_rel_link');
+		remove_action( 'wp_head', 'adjacent_posts_rel_link');
+		remove_action( 'wp_head', 'wp_generator');
     }
     add_action('init', 'removeHeadLinks');
     remove_action('wp_head', 'wp_generator');
+	
+}
+
+// Custom jQuery Load
+
+function load_jquery() {
+if (!is_admin()) {
+        
+       wp_deregister_script('jquery'); // deregister jQuery
+       // register it again, this time with no file path
+       wp_register_script('jquery', '', FALSE, '1.7.1'); 
+	   // re-register jQuery with no file path
+       wp_enqueue_script('jquery');
+   }
+}
+ 
+add_action('template_redirect', 'load_jquery');
+	
+/**
+ * Returns a "Continue Reading" link for excerpts
+ */
+function h5bp_continue_reading_link() {
+	return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'h5bp' ) . '</a>';
+}
+
+/**
+ * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and h5bp_continue_reading_link().
+ *
+ * To override this in a child theme, remove the filter and add your own
+ * function tied to the excerpt_more filter hook.
+ */
+function h5bp_auto_excerpt_more( $more ) {
+	return ' &hellip;' . h5bp_continue_reading_link();
+}
+add_filter( 'excerpt_more', 'h5bp_auto_excerpt_more' );
+
+/**
+ * Adds a pretty "Continue Reading" link to custom post excerpts.
+ *
+ * To override this link in a child theme, remove the filter and add your own
+ * function tied to the get_the_excerpt filter hook.
+ */
+function h5bp_custom_excerpt_more( $output ) {
+	if ( has_excerpt() && ! is_attachment() ) {
+		$output .= h5bp_continue_reading_link();
+	}
+	return $output;
+}
+add_filter( 'get_the_excerpt', 'h5bp_custom_excerpt_more' );
 	
 	// Custom Functions for CSS/Javascript Versioning
 	$GLOBALS["TEMPLATE_URL"] = get_bloginfo('template_url')."/";

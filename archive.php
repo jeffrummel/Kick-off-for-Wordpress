@@ -6,13 +6,9 @@
 
 get_header(); ?>
 
-<div id="main" role="main">
+<section id="main" role="main">
 
   <?php if (have_posts()) : ?>
-
-  <section>
-
-		<?php include (TEMPLATEPATH . '/_inc/browse.php' ); ?>
 
     <?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
     <?php /* If this is a category archive */ if (is_category()) { ?>
@@ -40,7 +36,7 @@ get_header(); ?>
         <time datetime="<?php the_time('Y-m-d')?>"><?php the_time('l, F jS, Y') ?></time>
       </header>
 
-      <?php the_content() ?>
+      <?php the_excerpt() ?>
 
 		<?php include (TEMPLATEPATH . '/_inc/meta.php' ); ?>
     </article>
@@ -67,7 +63,7 @@ get_header(); ?>
   endif;
   ?>
 
-</div>
+</section>
 
 <?php get_sidebar(); ?>
 
