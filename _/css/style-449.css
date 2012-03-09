@@ -1,8 +1,0 @@
-body {
-	background:#fff url('styles/images/960-16.png') top center repeat-y fixed !important;
-}
-.title {display:none;}
-article h2 {color:#8A2780;font:300 2.85em/1em chaparral-pro-1, chaparral-pro-2;}
-article .copy {
-	background:url('http://www.susquehannastyle.com/wp-content/themes/sqs-july2011/img/sqs_header_logo.jpg') top left no-repeat;
-}
