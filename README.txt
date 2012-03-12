@@ -106,7 +106,5 @@ Stylesheets
 -----------
 We have our own veriation on the html5 reset.css, and the commonly used .clearfix is included so there is no need to add it to the main style.
 
-ie6 is handled through Andy Clarke's Beautiful Universal Stylesheet for ie6 (http://www.stuffandnonsense.co.uk/blog/about/universal_internet_explorer_6_css) and any other variation of ie can be called through a class via Paul Irish's inventive technique (http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/)
-
 Colors - If you're super organized, you can do a find/replace for the following colors:
 #000, #fff, #555, #eee, and #666. Links are blue, purple and red.
